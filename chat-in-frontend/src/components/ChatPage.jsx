@@ -126,7 +126,7 @@ const ChatPage = () => {
   }
 
   return (
-    <div className="">
+    <div className="flex flex-row gap-1 justify-center">
       {/* this is a header */}
       <header className="dark:border-gray-700  fixed w-full dark:bg-gray-900 py-5 shadow flex justify-around items-center">
         {/* room name container */}
