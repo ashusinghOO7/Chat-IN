@@ -1,5 +1,6 @@
 package com.chat.in.controllers;
 
+import com.chat.in.config.AppConstants;
 import com.chat.in.entities.Message;
 import com.chat.in.entities.Room;
 import com.chat.in.payload.MessageRequest;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.time.LocalDateTime;
 
 @Controller
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin(AppConstants.front_end_base_url)
 public class ChatController {
 
     private RoomRepository roomRepository;

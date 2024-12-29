@@ -126,20 +126,20 @@ const ChatPage = () => {
   }
 
   return (
-    <div className="flex flex-row gap-1 justify-center">
+    <div className="flex gap-1 justify-center">
       {/* this is a header */}
       <header className="dark:border-gray-700  fixed w-full dark:bg-gray-900 py-5 shadow flex justify-around items-center">
         {/* room name container */}
         <div>
-          <h1 className="text-xl font-semibold">
-            Room : <span>{roomId}</span>
+          <h1 className="text-xl text-blue-300 font-semibold">
+            Room : <span className="text-blue-500 font-bold">{roomId}</span>
           </h1>
         </div>
         {/* username container */}
 
         <div>
-          <h1 className="text-xl font-semibold">
-            User : <span>{currentUser}</span>
+          <h1 className="text-xl text-[#fa5f00] font-semibold">
+            User : <span className="text-orange-700 font-bold">{currentUser}</span>
           </h1>
         </div>
         {/* button: leave room */}
@@ -155,7 +155,7 @@ const ChatPage = () => {
 
       <main
         ref={chatBoxRef}
-        className="py-20 px-10   w-2/3 dark:bg-slate-600 mx-auto h-screen overflow-auto "
+        className="py-20 px-10 w-screen dark:bg-slate-600 mx-auto max-h-max overflow-auto"
       >
         {messages.map((message, index) => (
           <div
@@ -167,20 +167,31 @@ const ChatPage = () => {
             <div
               className={`my-2 ${
                 message.sender === currentUser ? "bg-green-800" : "bg-gray-800"
-              } p-2 max-w-xs rounded`}
+              } p-2 max-w-xs rounded-3xl `}
             >
-              <div className="flex flex-row gap-2">
-                <img
-                  className="h-10 w-10"
+              <div className="flex flex-col gap-2">
+              {message.sender !== currentUser ? 
+                <div className="flex pl-3 pt-2 flex-row bg-slate-710 gap-2 item-center">
+                  <img
+                  className="h-7 w-7"
                   src={"https://avatar.iran.liara.run/public/43"}
                   alt=""
-                />
-                <div className="flex flex-col gap-1">
-                  <p className="text-sm font-bold">{message.sender}</p>
-                  <p>{message.content}</p>
-                  <p className="text-xs text-gray-400">
+                  />
+                  <p className="text-lg text-yellow-500 flex">{message.sender}</p>
+                </div>
+                :<></>
+                }
+                <div className="flex min-w-52 flex-col text-wrap gap-1 overflow-hidden">
+                  <div className="max-w-70 font-bold pl-5 break-words text-left whitespace-normal">
+                    {message.content}
+                  </div>
+                  <div className="flex self-end text-xs text-gray-400 pl-3 pr-2">
                     {timeAgo(message.timeStamp)}
-                  </p>
+                  </div>
+                  {/* <p className="font-bold text-wrap overscroll-auto pl-5">{message.content}</p>
+                  <p className="flex self-end text-xs text-gray-400 pl-3">
+                    {timeAgo(message.timeStamp)}
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -206,9 +217,9 @@ const ChatPage = () => {
           />
 
           <div className="flex gap-1">
-            <button className="dark:bg-purple-600 h-10 w-10  flex   justify-center items-center rounded-full">
+            {/* <button className="dark:bg-purple-600 h-10 w-10  flex   justify-center items-center rounded-full">
               <MdAttachFile size={20} />
-            </button>
+            </button> */}
             <button
               onClick={sendMessage}
               className="dark:bg-green-600 h-10 w-10  flex   justify-center items-center rounded-full"

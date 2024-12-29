@@ -80,14 +80,17 @@ const JoinCreateChat = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center ">
+    <div className="min-h-full flex items-center justify-center">
       <div className="p-10 dark:border-gray-700 border w-full flex flex-col gap-5 max-w-md rounded dark:bg-gray-900 shadow">
         <div>
-          <img src={chatIcon} className="w-24 mx-auto" />
+          <img src={chatIcon} className="w-40 mx-auto" />
         </div>
 
+        <h1 className="bg-gradient-to-r from-[#f58a97] to-[#aee69c] text-transparent bg-clip-text text-4xl font-bold text-center text-orange-700">
+          Chat-IN
+        </h1>
         <h1 className="text-2xl font-semibold text-center ">
-          Join Room / Create Room ..
+          Join Room / Create Room
         </h1>
         {/* name div */}
         <div className="">
